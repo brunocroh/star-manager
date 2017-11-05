@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { CardComponent } from '../card/card.component';
+
+import { List } from './list';
 
 @Component({
   selector: 'app-list',
@@ -7,7 +11,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  @Input() list: List;
+
+  constructor() {
+    this.list = new List();
+    this.list.name = "Javascript"
+  }
 
   ngOnInit() {
   }

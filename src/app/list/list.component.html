@@ -1,9 +1,11 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    List Title
-  </div>
-  <div class="panel-body">
-    List Body
+<div class="col-xs-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span [innerHtml]="list.name"></span>
+    </div>
+    <div class="panel-body list-body">
+      <app-card></app-card>
+      <app-card></app-card>
+    </div>
   </div>
 </div>
-

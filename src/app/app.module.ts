@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +11,7 @@ import { BoardComponent } from './board/board.component';
 import { ListComponent } from './list/list.component';
 import { CardComponent } from './card/card.component';
 
+import { GithubService } from './service/github.service';
 import { AppComponent } from './app.component';
 
 const routes: Routes =[
@@ -23,14 +25,15 @@ const routes: Routes =[
     AppComponent,
     BoardComponent,
     ListComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
-  providers: [],
+  providers: [GithubService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
