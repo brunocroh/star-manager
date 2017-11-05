@@ -2,3 +2,11 @@
   background-color: #026AA7;
 }
 
+.board-container{
+  margin-top: 0px;
+  background-color: #ddd;
+}
+
+.title {
+  margin-top: 0px;
+}

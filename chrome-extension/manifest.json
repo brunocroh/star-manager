@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Star Manager",
+  "description": "This extension allows you manage and organize your starred repositories of Github",
+  "version": "0.0.0",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}

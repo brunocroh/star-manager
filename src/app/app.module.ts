@@ -16,9 +16,7 @@ import { GithubService } from './service/github.service';
 import { AppComponent } from './app.component';
 
 const routes: Routes =[
-  { path: 'board', component: BoardComponent },
-  { path: 'list', component: ListComponent },
-  { path: 'card', component: CardComponent }
+  { path: '**', component: BoardComponent },
 ]
 
 @NgModule({

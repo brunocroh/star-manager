@@ -35,4 +35,14 @@ export class BoardComponent implements OnInit {
     this.board.addList('New List');
   }
 
+  saveBoard(event){
+    chrome.storage.sync.set({ "board": this.board })
+    console.log(this.board);
+  }
+
+  loadBoard(event){
+    chrome.storage.sync.get("board", function(board){
+      console.log(board);
+    })
+  }
 }
