@@ -1,7 +1,10 @@
 <div class="board container-fluid">
   <div>
     <p class="titles">
-      Welcome to board of {{title}}!
+      Welcome to board of {{board.name}}!
     </p>
+  </div>
+  <div *ngFor="let list of board.lists">
+    <app-list [list]="list"></app-list>
   </div>
 </div>

@@ -4,8 +4,9 @@
       <span [innerHtml]="list.name"></span>
     </div>
     <div class="panel-body list-body">
-      <app-card></app-card>
-      <app-card></app-card>
+      <div *ngFor="let card of list.cards">
+        <app-card [card]="card"></app-card>
+      </div>
     </div>
   </div>
 </div>

@@ -2,6 +2,9 @@ import { Card } from '../card/card';
 
 export class List {
 
-  name: string;
-  cards: Card[];
+  constructor(
+    private name: string = "Default List",
+    private cards: Array<Card> = new Array<Card>()){
+
+  }
 }

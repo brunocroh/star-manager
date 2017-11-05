@@ -11,11 +11,11 @@ export class CardComponent implements OnInit {
   @Input() card: Card;
 
   constructor() {
-    this.card = new Card();
-    this.card.repositoryName = "Nome do Repositorio"
+    this.card = new Card("Nome do Repositorio");
   }
 
   ngOnInit() {
+
   }
 
 }

@@ -2,6 +2,8 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs/Subject';
 
+import { Card } from '../card/card';
+
 @Injectable()
 export class GithubService implements OnInit {
 
@@ -10,10 +12,10 @@ export class GithubService implements OnInit {
   private starredReposSource = new Subject<any>();
   public starredRepo$ = this.starredReposSource.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(){
-
   }
 
   public getStarredRepos(page: number){
@@ -25,7 +27,8 @@ export class GithubService implements OnInit {
     this.http
       .get(url, {params})
       .subscribe((repos: Array<any>) => {
-         this.starredRepo(repos);
+         let cards = repos.map(repo => new Card(repo.full_name))
+         this.starredRepo(cards);
       })
   }
 

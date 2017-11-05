@@ -1,4 +1,4 @@
 export class Card{
 
-  repositoryName: String;
+  constructor(private name: string){}
 }
