@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DndModule } from 'ng2-dnd';
 
 import { BoardComponent } from './board/board.component';
 import { ListComponent } from './list/list.component';
@@ -21,17 +22,19 @@ const routes: Routes =[
 ]
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule.forRoot(),
+    RouterModule.forRoot(routes),
+    DndModule.forRoot()
+  ],
   declarations: [
     AppComponent,
     BoardComponent,
     ListComponent,
     CardComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    NgbModule.forRoot(),
-    RouterModule.forRoot(routes),
   ],
   providers: [GithubService],
   bootstrap: [AppComponent]

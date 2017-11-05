@@ -31,4 +31,8 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
   }
 
+  addNewList(event){
+    this.board.addList('New List');
+  }
+
 }

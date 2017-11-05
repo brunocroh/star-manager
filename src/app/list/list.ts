@@ -7,4 +7,12 @@ export class List {
     private cards: Array<Card> = new Array<Card>()){
 
   }
+
+  addCard(card: Card){
+    this.cards.push(card);
+  }
+
+  removeCard(card: Card){
+    this.cards.splice(this.cards.indexOf(card), 1);
+  }
 }

@@ -23,6 +23,7 @@
     "@angular/router": "^5.0.0",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.5",
     "core-js": "^2.4.1",
+    "ng2-dnd": "^4.2.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },

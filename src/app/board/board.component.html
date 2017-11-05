@@ -7,4 +7,5 @@
   <div *ngFor="let list of board.lists">
     <app-list [list]="list"></app-list>
   </div>
+  <button class="btn btn-primary" (click)="addNewList($event)" >Add new List...</button>
 </div>

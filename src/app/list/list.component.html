@@ -1,11 +1,21 @@
-<div class="col-xs-4">
+<div class="col-xs-3">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      <span [innerHtml]="list.name"></span>
+    <div (click)="editListName(true)" class="panel-heading">
+      <div *ngIf="!editingName; else editandoNome">
+        <span [innerHtml]="list.name"></span>
+      </div>
+      <ng-template #editandoNome>
+        <input #inputListName
+          autofocus
+          type="text"
+          [(ngModel)]="list.name"
+          (blur)="editListName(false)"
+          (keyup.enter)="editListName(false)">
+      </ng-template>
     </div>
-    <div class="panel-body list-body">
+    <div dnd-droppable class="panel-body list-body" (onDropSuccess)="dropSuccess($event)">
       <div *ngFor="let card of list.cards">
-        <app-card [card]="card"></app-card>
+        <app-card dnd-draggable [dragEnabled]="true" (onDragSuccess)="dragSuccess($event)"[dragData]="card" [card]="card"></app-card>
       </div>
     </div>
   </div>
