@@ -15,17 +15,12 @@ import { CardComponent } from './card/card.component';
 import { GithubService } from './service/github.service';
 import { AppComponent } from './app.component';
 
-const routes: Routes =[
-  { path: '**', component: BoardComponent },
-]
-
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(routes),
     DndModule.forRoot()
   ],
   declarations: [

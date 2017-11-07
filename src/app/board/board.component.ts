@@ -12,20 +12,33 @@ import { ListComponent } from '../list/list.component';
 })
 export class BoardComponent implements OnInit {
 
-  private board: Board;
+  private board: Board = new Board("Starred Repositories");
+  private loadedData: boolean = false;
 
   constructor(private ref: ChangeDetectorRef,
     private githubService: GithubService) {
 
-    this.board = new Board('github star manager');
-
     this.githubService.starredRepo$
       .subscribe(cards => {
-        console.log(cards);
-        this.board.addDefaultList(cards)
+        if(!this.loadedData){
+          this.board.addDefaultList(cards)
+        }
         this.ref.markForCheck();
       });
+
     this.githubService.getStarredRepos(1);
+    chrome.storage.sync.get("board", (data) => {
+
+      if(data){
+        this.board = new Board(data.board.name);
+        data.board.lists.map((list) => {
+          this.board.addList(list.name, list.cards)
+        })
+
+        this.loadedData = true;
+      }
+    })
+
   }
 
   ngOnInit() {
@@ -37,12 +50,5 @@ export class BoardComponent implements OnInit {
 
   saveBoard(event){
     chrome.storage.sync.set({ "board": this.board })
-    console.log(this.board);
-  }
-
-  loadBoard(event){
-    chrome.storage.sync.get("board", function(board){
-      console.log(board);
-    })
   }
 }

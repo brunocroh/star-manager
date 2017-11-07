@@ -5,7 +5,9 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   ViewChild,
-  ElementRef
+  ElementRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
@@ -25,19 +27,22 @@ export class ListComponent implements OnInit {
   @Input() list: List;
   editingName: boolean = false;
 
+  @Output() change: EventEmitter<any> = new EventEmitter();
+
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.list);
   }
 
   editListName(event){
     this.editingName = event;
+    this.change.emit(null);
   }
 
   dropSuccess(event: any){
     this.list.addCard(event.dragData);
+    this.change.emit(null);
   }
 
   dragSuccess(event: any){

@@ -1,8 +1,6 @@
 <div class="board container-fluid">
   <div *ngFor="let list of board.lists">
-    <app-list [list]="list"></app-list>
+    <app-list [list]="list" (change)="saveBoard($event)"></app-list>
   </div>
-  <button class="btn btn-primary" (click)="loadBoard($event)" >Save Board</button>
-  <button class="btn btn-primary" (click)="saveBoard($event)" >Save Board</button>
   <button class="btn btn-primary" (click)="addNewList($event)" >Add new List...</button>
 </div>

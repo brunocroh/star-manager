@@ -1,4 +1,4 @@
-<div class="col-xs-3">
+<div class="col-xs-3" dnd-droppable (onDropSuccess)="dropSuccess($event)">
   <div class="panel panel-default">
     <div (click)="editListName(true)" class="panel-heading">
       <div *ngIf="!editingName; else editandoNome">

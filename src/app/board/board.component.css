@@ -4,3 +4,9 @@
   height: 100%;
 }
 
+.addLaterInfinityHorizontalScroller {
+  position: absolute;
+  overflow:scroll;
+  overflow-y: hidden;
+  white-space:nowrap;
+}
