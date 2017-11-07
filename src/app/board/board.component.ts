@@ -18,9 +18,11 @@ export class BoardComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef,
     private githubService: GithubService) {
 
+
     this.githubService.starredRepo$
       .subscribe(cards => {
         if(!this.loadedData){
+
           this.board.addDefaultList(cards)
         }
         this.ref.markForCheck();
@@ -29,7 +31,7 @@ export class BoardComponent implements OnInit {
     this.githubService.getStarredRepos(1);
     chrome.storage.sync.get("board", (data) => {
 
-      if(data){
+      if(!(data.board === undefined)){
         this.board = new Board(data.board.name);
         data.board.lists.map((list) => {
           this.board.addList(list.name, list.cards)
@@ -49,6 +51,7 @@ export class BoardComponent implements OnInit {
   }
 
   saveBoard(event){
+    console.log(this.board);
     chrome.storage.sync.set({ "board": this.board })
   }
 }

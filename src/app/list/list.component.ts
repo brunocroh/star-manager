@@ -47,5 +47,7 @@ export class ListComponent implements OnInit {
 
   dragSuccess(event: any){
     this.list.removeCard(event.dragData);
+    this.change.emit(null);
   }
+
 }

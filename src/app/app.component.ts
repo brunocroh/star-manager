@@ -8,5 +8,4 @@ import { BoardComponent } from './board/board.component';
 })
 export class AppComponent {
   title = 'Github Star Manager';
-
 }
