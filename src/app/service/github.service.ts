@@ -13,9 +13,11 @@ export class GithubService implements OnInit {
   public starredRepo$ = this.starredReposSource.asObservable();
 
   constructor(private http: HttpClient) {
+
   }
 
   ngOnInit(){
+
   }
 
   public getStarredRepos(page: number){
@@ -27,8 +29,9 @@ export class GithubService implements OnInit {
     this.http
       .get(url, {params})
       .subscribe((repos: Array<any>) => {
-         let cards = repos.map(repo => new Card(repo.full_name))
-         this.starredRepo(cards);
+        let cards = repos.map(repo => new Card(repo.full_name))
+        this.starredRepo(cards);
+        cards.length === 30 ? this.getStarredRepos(page+1) : null;
       })
   }
 

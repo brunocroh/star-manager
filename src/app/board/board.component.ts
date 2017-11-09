@@ -22,8 +22,8 @@ export class BoardComponent implements OnInit {
     this.githubService.starredRepo$
       .subscribe(cards => {
         if(!this.loadedData){
-
           this.board.addDefaultList(cards)
+          this.saveBoard(null);
         }
         this.ref.markForCheck();
       });

@@ -8,8 +8,8 @@ export class List {
 
   }
 
-  addCard(card: Card){
-    this.cards.push(card);
+  addCard(...cards: Array<Card>){
+    this.cards = this.cards.concat(cards);
   }
 
   removeCard(card: Card){

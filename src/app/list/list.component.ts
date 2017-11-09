@@ -2,8 +2,6 @@ import {
   Component,
   OnInit,
   Input,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   ViewChild,
   ElementRef,
   Output,
@@ -19,7 +17,6 @@ import { List } from './list';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
