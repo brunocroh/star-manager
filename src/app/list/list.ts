@@ -12,6 +12,10 @@ export class List {
     this.cards = this.cards.concat(cards);
   }
 
+  getCards(): Array<Card>{
+    return this.cards;
+  }
+
   removeCard(card: Card){
     this.cards.splice(this.cards.indexOf(card), 1);
   }
